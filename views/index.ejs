@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <img src="<%= data.profilePhoto %>" alt="Profile Photo" class="profile-photo">
+            <h1><%= data.userName %></h1>
+            <p>User ID: <%= data.userId %></p>
+        </div>
+        <div class="data-table">
+            <h2>Fitness Data</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Steps</th>
+                        <th>Heart Rate</th>
+                        <th>Height (cm)</th>
+                        <th>Sleep (hours)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.formattedData.forEach(item => { %>
+                        <tr>
+                            <td><%= item.date %></td>
+                            <td><%= item.step_count %></td>
+                            <td><%= item.heart_rate %></td>
+                            <td><%= item.height_in_cms %></td>
+                            <td><%= item.sleep_hours %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
